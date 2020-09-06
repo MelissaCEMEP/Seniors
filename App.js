@@ -1,21 +1,30 @@
+import 'react-native-gesture-handler'
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native'
+import { createStackNavigator } from '@react-navigation/stack'
+import { StatusBar } from 'expo-status-bar'
+
+import TelaPrincipal from './pages/Principal'
+import Emergencia from './pages/Emergencia'
+import Jogos from './pages/Jogos'
+import Remedios from './pages/Remedios'
+import Videos from './pages/Videos'
+
+const Stack = createStackNavigator()
 
 export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text style={{color:"#5A95D5", fontSize:35}}>Anne</Text>
-      <Text style={{color:"#5A95D5", fontSize:35}}>Melissa</Text>
-      <Text style={{color:"purple", fontSize:150}}>TCC</Text>
-    </View>
-  );
+    return (
+        <>
+            <StatusBar style="light" />
+            <NavigationContainer>
+                <Stack.Navigator screenOptions={{ headerShown: false }}>
+                    <Stack.Screen name="Principal" component={TelaPrincipal} />
+                    <Stack.Screen name="Emergencia" component={Emergencia} />
+                    <Stack.Screen name="Jogos" component={Jogos} />
+                    <Stack.Screen name="Remedios" component={Remedios} />
+                    <Stack.Screen name="Videos" component={Videos} />
+                </Stack.Navigator>
+            </NavigationContainer>
+        </>
+    );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#ADEABB',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
