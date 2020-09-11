@@ -22,20 +22,25 @@ export default function TelaPrincipal() {
     }
     return (
         <View style={styles.caixa}>
+            <Text style={styles.link}>SENIORS</Text>
+
           <TouchableOpacity style={styles.botao} onPress={navegarParaRemedios}>
             <Text style={styles.texto}>Remédios</Text>
           </TouchableOpacity>
+
           <TouchableOpacity style={styles.botao} onPress={navegarParaJogos}>
             <Text style={styles.texto}>Jogos</Text>
           </TouchableOpacity>
+
           <TouchableOpacity style={styles.botao} onPress={navegarParaVideos}>
             <Text style={styles.texto}>Vídeos</Text>
           </TouchableOpacity>
+          
           <TouchableOpacity style={styles.botao} onPress={navegarParaEmergencia}>
             <Text style={styles.texto}>Emergência</Text>
           </TouchableOpacity>
 
-          <Text style={styles.link}>SENIORS</Text>
+          
         </View>
     )
 }
@@ -57,12 +62,12 @@ const styles = StyleSheet.create({
         shadowColor: "#000",
         shadowOffset: {
             width: 0,
-            height: 3,
+            height: 7,
         },
-        shadowOpacity: 0.27,
-        shadowRadius: 4.65,
+        shadowOpacity: 0.41,
+        shadowRadius: 9.11,
 
-        elevation: 6,
+        elevation: 14,
     },
     texto: {
         fontSize: 36,
