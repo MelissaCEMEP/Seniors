@@ -10,7 +10,7 @@ function Emergencia() {
   }
   return (
     <View style={styles.caixa}>
-      <Text style={styles.link}>Emergencia</Text>
+      <Text style={styles.link}>Emergência</Text>
 
       <TouchableOpacity style={styles.botao}>
         <Text style={styles.texto}>Ambulância</Text>
@@ -21,7 +21,7 @@ function Emergencia() {
       </TouchableOpacity>
 
       <TouchableOpacity style={styles.botao}>
-        <Text style={styles.texto}>Policia Militar</Text>
+        <Text style={styles.texto}>Polícia Militar</Text>
       </TouchableOpacity>
 
       <View style={styles.botao_voltar_caixa}>
