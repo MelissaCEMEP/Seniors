@@ -23,7 +23,7 @@ function Emergencia() {
             flexDirection: "column",
             alignItems: "center",
             justifyContent: "space-evenly",
-            marginTop: 10,
+            marginTop: 50,
             flex: 1,
           }}
         >
@@ -39,13 +39,16 @@ function Emergencia() {
             <Text style={styles.texto}>Polícia Militar</Text>
           </TouchableOpacity>
 
-          <View style={styles.botao_voltar_caixa}>
-            <TouchableOpacity
-              style={styles.botao_voltar}
-              onPress={navegarParaTelaAnterior}
-            >
-              <Text style={styles.botao_voltar_texto}>Voltar</Text>
-            </TouchableOpacity>
+          <View style={styles.footer}>
+            <View style={styles.botao_voltar_caixa}>
+              <TouchableOpacity
+                style={styles.botao_voltar}
+                onPress={navegarParaTelaAnterior}
+              >
+                <Text style={styles.botao_voltar_texto}>Voltar</Text>
+              </TouchableOpacity>
+            </View>
+            <Text style={styles.badge}>SENIORS</Text>
           </View>
         </View>
       </View>
@@ -115,6 +118,12 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     textTransform: "uppercase",
   },
+  badge: {
+    fontSize: 25,
+    color: "#FEF745",
+    fontWeight: "bold",
+    textTransform: "uppercase",
+  },
 
   botao_voltar_caixa: {
     width: "90%",
@@ -133,6 +142,16 @@ const styles = StyleSheet.create({
     paddingLeft: 10,
     borderBottomLeftRadius: 50,
     borderBottomRightRadius: 50,
+  },
+
+  footer: {
+    position: "absolute",
+    bottom: 0,
+    marginBottom: 10,
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-around",
+    width: "80%",
   },
 });
 
