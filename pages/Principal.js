@@ -18,7 +18,7 @@ export default function TelaPrincipal() {
   }
 
   function navegarParaEmergencia() {
-    navigation.navigate("Emergência");
+    navigation.navigate("Emergencia");
   }
   return (
     <View style={styles.caixa}>

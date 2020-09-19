@@ -19,7 +19,7 @@ function Jogos(){
             </TouchableOpacity>
 
             <TouchableOpacity style={styles.botao}>
-                <Text style={styles.texto}>Sudoku</Text>
+                <Text style={styles.texto}>Caça Palavras</Text>
             </TouchableOpacity>
 
             <View style={styles.botao_voltar_caixa}>
