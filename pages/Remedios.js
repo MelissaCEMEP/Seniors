@@ -6,10 +6,12 @@ import {
   StyleSheet,
   TextInput,
 } from "react-native";
+import { useNavigation } from "@react-navigation/native";
 import { AntDesign } from "@expo/vector-icons";
 import { StatusBar } from "expo-status-bar";
 
 function Remedios() {
+  const navigation = useNavigation();
   return (
     <>
       <StatusBar style="dark" />
@@ -39,7 +41,10 @@ function Remedios() {
 
           <View style={styles.footer}>
             <View style={styles.botao_voltar_caixa}>
-              <TouchableOpacity style={styles.botao_voltar}>
+              <TouchableOpacity
+                style={styles.botao_voltar}
+                onPress={() => navigation.goBack()}
+              >
                 <Text style={styles.botao_voltar_texto}>Voltar</Text>
               </TouchableOpacity>
             </View>
