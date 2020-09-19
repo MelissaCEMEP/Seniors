@@ -1,6 +1,7 @@
 import React from "react";
 import { View, TouchableOpacity, Text, StyleSheet } from "react-native";
 import { useNavigation } from "@react-navigation/native";
+import { StatusBar } from "expo-status-bar";
 
 function Emergencia() {
   const navigation = useNavigation();
@@ -9,30 +10,46 @@ function Emergencia() {
     navigation.goBack();
   }
   return (
-    <View style={styles.caixa}>
-      <Text style={styles.link}>Emergência</Text>
+    <>
+      <StatusBar style="dark" />
+      <View style={styles.caixa}>
+        <View style={styles.titulo}>
+          <Text style={styles.link}>Emergência</Text>
+        </View>
 
-      <TouchableOpacity style={styles.botao}>
-        <Text style={styles.texto}>Ambulância</Text>
-      </TouchableOpacity>
-
-      <TouchableOpacity style={styles.botao}>
-        <Text style={styles.texto}>Bombeiro</Text>
-      </TouchableOpacity>
-
-      <TouchableOpacity style={styles.botao}>
-        <Text style={styles.texto}>Polícia Militar</Text>
-      </TouchableOpacity>
-
-      <View style={styles.botao_voltar_caixa}>
-        <TouchableOpacity
-          style={styles.botao_voltar}
-          onPress={navegarParaTelaAnterior}
+        <View
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            justifyContent: "space-evenly",
+            marginTop: 10,
+            flex: 1,
+          }}
         >
-          <Text style={styles.botao_voltar_texto}>Voltar</Text>
-        </TouchableOpacity>
+          <TouchableOpacity style={styles.botao}>
+            <Text style={styles.texto}>Ambulância</Text>
+          </TouchableOpacity>
+
+          <TouchableOpacity style={styles.botao}>
+            <Text style={styles.texto}>Bombeiro</Text>
+          </TouchableOpacity>
+
+          <TouchableOpacity style={styles.botao}>
+            <Text style={styles.texto}>Polícia Militar</Text>
+          </TouchableOpacity>
+
+          <View style={styles.botao_voltar_caixa}>
+            <TouchableOpacity
+              style={styles.botao_voltar}
+              onPress={navegarParaTelaAnterior}
+            >
+              <Text style={styles.botao_voltar_texto}>Voltar</Text>
+            </TouchableOpacity>
+          </View>
+        </View>
       </View>
-    </View>
+    </>
   );
 }
 
@@ -69,9 +86,10 @@ const styles = StyleSheet.create({
     textTransform: "uppercase",
   },
   link: {
-    color: "#FFFFFF",
+    color: "#000",
     fontWeight: "bold",
-    fontSize: 27,
+    fontSize: 47,
+    textTransform: "uppercase",
   },
   botao_voltar: {
     alignItems: "center",
@@ -101,6 +119,20 @@ const styles = StyleSheet.create({
   botao_voltar_caixa: {
     width: "90%",
     alignItems: "flex-start",
+  },
+  titulo: {
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    backgroundColor: "#FEF745",
+    width: "100%",
+    height: 90,
+    position: "absolute",
+    top: 0,
+    paddingTop: 20,
+    paddingLeft: 10,
+    borderBottomLeftRadius: 50,
+    borderBottomRightRadius: 50,
   },
 });
 
