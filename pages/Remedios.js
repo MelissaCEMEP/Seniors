@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   View,
   TouchableOpacity,
@@ -6,12 +6,24 @@ import {
   StyleSheet,
   TextInput,
 } from "react-native";
+import AsyncStorage from "@react-native-community/async-storage";
 import { useNavigation } from "@react-navigation/native";
+import DatePicker from "react-native-datepicker";
 import { AntDesign } from "@expo/vector-icons";
 import { StatusBar } from "expo-status-bar";
 
 function Remedios() {
+  const [dataEscolhida, setDataEscolhida] = useState([]);
+  const [dataInput, setDataInput] = useState("");
   const navigation = useNavigation();
+
+  async function mudarData(date) {
+    const newDate = [...dataEscolhida, date];
+    setDataEscolhida(newDate);
+    setDataInput(date);
+    await AsyncStorage.setItem("@data", JSON.stringify(newDate));
+  }
+
   return (
     <>
       <StatusBar style="dark" />
@@ -29,13 +41,48 @@ function Remedios() {
             flex: 1,
           }}
         >
-          <TouchableOpacity style={styles.botao}>
+          <TouchableOpacity
+            style={styles.botao}
+            onPress={() => navigation.push("Calendario")}
+          >
             <Text style={styles.texto}>Calendário</Text>
           </TouchableOpacity>
           <Text style={styles.novo}>Medicamento:</Text>
           <TextInput placeholder="" style={styles.input} />
           <Text style={styles.novo}>Horário:</Text>
-          <TextInput placeholder="" style={styles.inputMenor} />
+          <DatePicker
+            style={{ width: 200 }}
+            mode="date"
+            date={dataInput}
+            onDateChange={mudarData}
+            placeholder="."
+            format="YYYY-MM-DD"
+            confirmBtnText="Confirmar"
+            cancelBtnText="Cancelar"
+            iconComponent={
+              <AntDesign
+                name="calendar"
+                size={34}
+                color="#FEF745"
+                style={{
+                  position: "absolute",
+                  left: 0,
+                  top: 4,
+                }}
+              />
+            }
+            customStyles={{
+              dateInput: {
+                marginLeft: 36,
+                backgroundColor: "#fff",
+                width: 350,
+                height: 54,
+                borderWidth: 5,
+                borderRadius: 50,
+                borderColor: "#FEF745",
+              },
+            }}
+          />
 
           <AntDesign name="pluscircleo" size={50} color="#FEF745" />
 
