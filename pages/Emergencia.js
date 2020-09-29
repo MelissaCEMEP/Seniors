@@ -2,12 +2,46 @@ import React from "react";
 import { View, TouchableOpacity, Text, StyleSheet } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { StatusBar } from "expo-status-bar";
+import * as Linking from "expo-linking";
 
 function Emergencia() {
   const navigation = useNavigation();
 
   function navegarParaTelaAnterior() {
     navigation.goBack();
+  }
+
+  function ligarParaAmbulancia() {
+    const phoneNumber = "192";
+    Linking.canOpenURL(`tel:${phoneNumber}`).then((supported) => {
+      if (!supported) {
+        // handle the error
+      } else {
+        return Linking.openURL(`tel:${phoneNumber}`);
+      }
+    });
+  }
+
+  function ligarParaBombeiro() {
+    const phoneNumber = "193";
+    Linking.canOpenURL(`tel:${phoneNumber}`).then((supported) => {
+      if (!supported) {
+        // handle the error
+      } else {
+        return Linking.openURL(`tel:${phoneNumber}`);
+      }
+    });
+  }
+
+  function ligarParaPolicia() {
+    const phoneNumber = "194";
+    Linking.canOpenURL(`tel:${phoneNumber}`).then((supported) => {
+      if (!supported) {
+        // handle the error
+      } else {
+        return Linking.openURL(`tel:${phoneNumber}`);
+      }
+    });
   }
   return (
     <>
@@ -27,15 +61,24 @@ function Emergencia() {
             flex: 1,
           }}
         >
-          <TouchableOpacity style={styles.botao}>
+          <TouchableOpacity
+            style={styles.botao}
+            onPress={() => ligarParaAmbulancia()}
+          >
             <Text style={styles.texto}>Ambulância</Text>
           </TouchableOpacity>
 
-          <TouchableOpacity style={styles.botao}>
+          <TouchableOpacity
+            style={styles.botao}
+            onPress={() => ligarParaBombeiro()}
+          >
             <Text style={styles.texto}>Bombeiro</Text>
           </TouchableOpacity>
 
-          <TouchableOpacity style={styles.botao}>
+          <TouchableOpacity
+            style={styles.botao}
+            onPress={() => ligarParaPolicia()}
+          >
             <Text style={styles.texto}>Polícia Militar</Text>
           </TouchableOpacity>
 
