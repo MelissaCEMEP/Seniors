@@ -1,7 +1,14 @@
-import React from "react";
-import { View, TouchableOpacity, Text, StyleSheet } from "react-native";
+import React, { useRef } from "react";
+import {
+  View,
+  TouchableOpacity,
+  Text,
+  StyleSheet,
+  ScrollView,
+} from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { StatusBar } from "expo-status-bar";
+import { Video } from "expo-av";
 
 function Videos() {
   const navigation = useNavigation();
@@ -14,7 +21,7 @@ function Videos() {
       <StatusBar style="dark" />
       <View style={styles.caixa}>
         <View style={styles.titulo}>
-          <Text style={styles.link}>Emergência</Text>
+          <Text style={styles.link}>Vídeos</Text>
         </View>
 
         <View
@@ -22,23 +29,61 @@ function Videos() {
             display: "flex",
             flexDirection: "column",
             alignItems: "center",
-            justifyContent: "space-evenly",
-            marginTop: 50,
+            justifyContent: "flex-start",
+            marginTop: 100,
             flex: 1,
           }}
         >
-          <TouchableOpacity style={styles.botao}>
-            <Text style={styles.texto}>Ambulância</Text>
-          </TouchableOpacity>
+          <ScrollView style={{ marginBottom: 60 }}>
+            <Video
+              source={{
+                uri: "http://d23dyxeqlo5psv.cloudfront.net/big_buck_bunny.mp4",
+              }}
+              rate={1.0}
+              volume={1.0}
+              isMuted={false}
+              resizeMode="cover"
+              isLooping
+              useNativeControls
+              style={{ width: 300, height: 200 }}
+            />
+            <Video
+              source={{
+                uri: "http://d23dyxeqlo5psv.cloudfront.net/big_buck_bunny.mp4",
+              }}
+              rate={1.0}
+              volume={1.0}
+              isMuted={false}
+              resizeMode="cover"
+              isLooping
+              useNativeControls
+              style={{ width: 300, height: 200, marginTop: 15 }}
+            />
 
-          <TouchableOpacity style={styles.botao}>
-            <Text style={styles.texto}>Bombeiro</Text>
-          </TouchableOpacity>
-
-          <TouchableOpacity style={styles.botao}>
-            <Text style={styles.texto}>Polícia Militar</Text>
-          </TouchableOpacity>
-
+            <Video
+              source={{
+                uri: "http://d23dyxeqlo5psv.cloudfront.net/big_buck_bunny.mp4",
+              }}
+              rate={1.0}
+              volume={1.0}
+              isMuted={false}
+              resizeMode="cover"
+              isLooping
+              useNativeControls
+              style={{ width: 300, height: 200, marginTop: 15 }}
+            />
+            <Video
+              source={{
+                uri: "http://d23dyxeqlo5psv.cloudfront.net/big_buck_bunny.mp4",
+              }}
+              rate={1.0}
+              volume={1.0}
+              isMuted={false}
+              resizeMode="cover"
+              isLooping
+              style={{ width: 300, height: 200, marginTop: 15 }}
+            />
+          </ScrollView>
           <View style={styles.footer}>
             <View style={styles.botao_voltar_caixa}>
               <TouchableOpacity
