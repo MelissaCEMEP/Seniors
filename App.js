@@ -14,6 +14,7 @@ import Calendario from "./pages/Calendario";
 const Stack = createStackNavigator();
 
 export default function App() {
+  console.disableYellowBox = true;
   return (
     <>
       <StatusBar style="light" />
