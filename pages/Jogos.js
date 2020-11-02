@@ -1,5 +1,5 @@
 import React from "react";
-import { View, TouchableOpacity, Text, StyleSheet } from "react-native";
+import { View, TouchableOpacity, Text, StyleSheet, Linking } from "react-native";
 import { StatusBar } from "expo-status-bar";
 import { useNavigation } from "@react-navigation/native";
 
@@ -28,7 +28,7 @@ function Jogos() {
             flex: 1,
           }}
         >
-          <TouchableOpacity style={styles.botao}>
+            <TouchableOpacity style={styles.botao} onPress={() => Linking.openURL('https://www.geniol.com.br/passatempos/jogo-da-memoria/')}>
             <Text style={styles.texto}>Memória</Text>
           </TouchableOpacity>
 

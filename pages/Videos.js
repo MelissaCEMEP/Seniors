@@ -36,9 +36,7 @@ function Videos() {
         >
           <ScrollView style={{ marginBottom: 60 }}>
             <Video
-              source={{
-                uri: "http://d23dyxeqlo5psv.cloudfront.net/big_buck_bunny.mp4",
-              }}
+              source={require('../assets/videos/video1.mp4')}
               rate={1.0}
               volume={1.0}
               isMuted={false}
@@ -48,9 +46,7 @@ function Videos() {
               style={{ width: 300, height: 200 }}
             />
             <Video
-              source={{
-                uri: "http://d23dyxeqlo5psv.cloudfront.net/big_buck_bunny.mp4",
-              }}
+              source={require('../assets/videos/video2.mp4')}
               rate={1.0}
               volume={1.0}
               isMuted={false}
@@ -61,26 +57,13 @@ function Videos() {
             />
 
             <Video
-              source={{
-                uri: "http://d23dyxeqlo5psv.cloudfront.net/big_buck_bunny.mp4",
-              }}
+              source={require('../assets/videos/video3.mp4')}
               rate={1.0}
               volume={1.0}
               isMuted={false}
               resizeMode="cover"
               isLooping
               useNativeControls
-              style={{ width: 300, height: 200, marginTop: 15 }}
-            />
-            <Video
-              source={{
-                uri: "http://d23dyxeqlo5psv.cloudfront.net/big_buck_bunny.mp4",
-              }}
-              rate={1.0}
-              volume={1.0}
-              isMuted={false}
-              resizeMode="cover"
-              isLooping
               style={{ width: 300, height: 200, marginTop: 15 }}
             />
           </ScrollView>
